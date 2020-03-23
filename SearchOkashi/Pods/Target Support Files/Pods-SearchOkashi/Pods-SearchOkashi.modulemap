@@ -1,0 +1,6 @@
+framework module Pods_SearchOkashi {
+  umbrella header "Pods-SearchOkashi-umbrella.h"
+
+  export *
+  module * { export * }
+}
