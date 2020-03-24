@@ -1,46 +1,18 @@
 //
-//  ViewController.swift
+//  RequestOkashi.swift
 //  SearchOkashi
 //
-//  Created by 工藤海斗 on 2020/03/23.
+//  Created by 工藤海斗 on 2020/03/25.
 //  Copyright © 2020 工藤海斗. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Alamofire
 
-class ViewController: UIViewController, UISearchBarDelegate {
-
-    @IBOutlet weak var searchText: UISearchBar!
-    
-    @IBOutlet weak var tableView: UITableView!
-    
-    var request = RequestOkashi()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        searchText.delegate = self
-        searchText.placeholder = "お菓子の名前を入力してください"
-    }
-    
-    
-    // 検索ボタンクリック時に呼ばれるdelegateメソッド
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // キーボードを閉じる
-        view.endEditing(true)
-        
-        guard let searchWord = searchBar.text else {
-            return
-        }
-        print(searchWord)
-        //searchOkashi(keyword: searchWord)
-        request.searchOkashi(keyword: searchWord)
-    }
+class RequestOkashi{
     
     // 引数keywordはUISearchBarに入力する検索したいキーワード
-    /*func searchOkashi(keyword : String){
+    func searchOkashi(keyword : String){
         // 全角文字をエンコードする
         guard let keywordEncode = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             return
@@ -81,7 +53,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
             }
         }
 
-    }*/
+    }
 
 }
-

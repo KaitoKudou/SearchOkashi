@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4438B095242A588F007C42CC /* RequestOkashi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4438B094242A588F007C42CC /* RequestOkashi.swift */; };
 		447804152428F38D00FE88FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447804142428F38D00FE88FE /* AppDelegate.swift */; };
 		447804172428F38D00FE88FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447804162428F38D00FE88FE /* SceneDelegate.swift */; };
 		447804192428F38D00FE88FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447804182428F38D00FE88FE /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		144BE4A8D1430AFBABCDC9D6 /* Pods-SearchOkashi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchOkashi.release.xcconfig"; path = "Target Support Files/Pods-SearchOkashi/Pods-SearchOkashi.release.xcconfig"; sourceTree = "<group>"; };
 		33EF7DAFF276E85AEACAE4C5 /* Pods-SearchOkashi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchOkashi.debug.xcconfig"; path = "Target Support Files/Pods-SearchOkashi/Pods-SearchOkashi.debug.xcconfig"; sourceTree = "<group>"; };
+		4438B094242A588F007C42CC /* RequestOkashi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOkashi.swift; sourceTree = "<group>"; };
 		447804112428F38D00FE88FE /* SearchOkashi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchOkashi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		447804142428F38D00FE88FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		447804162428F38D00FE88FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				447804142428F38D00FE88FE /* AppDelegate.swift */,
 				447804162428F38D00FE88FE /* SceneDelegate.swift */,
 				447804182428F38D00FE88FE /* ViewController.swift */,
+				4438B094242A588F007C42CC /* RequestOkashi.swift */,
 				4496EFC2242908B300D58931 /* ResponseOkashi.swift */,
 				4478041A2428F38D00FE88FE /* Main.storyboard */,
 				4478041D2428F39200FE88FE /* Assets.xcassets */,
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				447804192428F38D00FE88FE /* ViewController.swift in Sources */,
+				4438B095242A588F007C42CC /* RequestOkashi.swift in Sources */,
 				4496EFC3242908B300D58931 /* ResponseOkashi.swift in Sources */,
 				447804152428F38D00FE88FE /* AppDelegate.swift in Sources */,
 				447804172428F38D00FE88FE /* SceneDelegate.swift in Sources */,
