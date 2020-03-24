@@ -15,13 +15,19 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
+    private var itemJson : [ItemJson]!
+    private var resultJson : ResultJson?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         searchText.delegate = self
         searchText.placeholder = "お菓子の名前を入力してください"
+        
+        
     }
+    
     
     // 検索ボタンクリック時に呼ばれるdelegateメソッド
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -47,6 +53,24 @@ class ViewController: UIViewController, UISearchBarDelegate {
             return
         }
         print(requestURL)
+        
+        AF.request(requestURL, method: .get, encoding: JSONEncoding.default).response { response in
+            switch response.result {
+            case .success(let value):
+                guard let data = response.data else {return}
+                let decoder = JSONDecoder()
+                
+                guard let okashi = try? decoder.decode(ResultJson.self, from: data) else {return}
+                print(okashi)
+                
+                
+                
+            case .failure(let error):
+                print(error)
+                
+            }
+        }
+
     }
 
 }

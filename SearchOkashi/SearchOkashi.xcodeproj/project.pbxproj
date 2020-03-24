@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		4478041C2428F38D00FE88FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4478041A2428F38D00FE88FE /* Main.storyboard */; };
 		4478041E2428F39200FE88FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4478041D2428F39200FE88FE /* Assets.xcassets */; };
 		447804212428F39200FE88FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4478041F2428F39200FE88FE /* LaunchScreen.storyboard */; };
+		4496EFC3242908B300D58931 /* ResponseOkashi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4496EFC2242908B300D58931 /* ResponseOkashi.swift */; };
 		E5EFFAE2DE6C40F055699DC6 /* Pods_SearchOkashi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D2303FFA9B6E24F46D192B /* Pods_SearchOkashi.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		4478041D2428F39200FE88FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		447804202428F39200FE88FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		447804222428F39200FE88FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4496EFC2242908B300D58931 /* ResponseOkashi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseOkashi.swift; sourceTree = "<group>"; };
 		72D2303FFA9B6E24F46D192B /* Pods_SearchOkashi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchOkashi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 				447804142428F38D00FE88FE /* AppDelegate.swift */,
 				447804162428F38D00FE88FE /* SceneDelegate.swift */,
 				447804182428F38D00FE88FE /* ViewController.swift */,
+				4496EFC2242908B300D58931 /* ResponseOkashi.swift */,
 				4478041A2428F38D00FE88FE /* Main.storyboard */,
 				4478041D2428F39200FE88FE /* Assets.xcassets */,
 				4478041F2428F39200FE88FE /* LaunchScreen.storyboard */,
@@ -80,7 +83,6 @@
 				33EF7DAFF276E85AEACAE4C5 /* Pods-SearchOkashi.debug.xcconfig */,
 				144BE4A8D1430AFBABCDC9D6 /* Pods-SearchOkashi.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -208,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				447804192428F38D00FE88FE /* ViewController.swift in Sources */,
+				4496EFC3242908B300D58931 /* ResponseOkashi.swift in Sources */,
 				447804152428F38D00FE88FE /* AppDelegate.swift in Sources */,
 				447804172428F38D00FE88FE /* SceneDelegate.swift in Sources */,
 			);
