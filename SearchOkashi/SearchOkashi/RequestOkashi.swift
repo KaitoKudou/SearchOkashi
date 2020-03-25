@@ -11,8 +11,11 @@ import Alamofire
 
 class RequestOkashi{
     
+    public var okashiList : [(name:String, maker:String, link:URL, image:URL)] = []
+    var viewController:ViewController?
+    
     // 引数keywordはUISearchBarに入力する検索したいキーワード
-    func searchOkashi(keyword : String){
+    func searchOkashi(keyword : String , completion: @escaping ([(name:String, maker:String, link:URL, image:URL)]) -> Void){
         // 全角文字をエンコードする
         guard let keywordEncode = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             return
@@ -25,6 +28,10 @@ class RequestOkashi{
         print(requestURL)
         
         AF.request(requestURL, method: .get, encoding: JSONEncoding.default).response { response in
+            // { response in ...} の部分は完了ハンドラとして渡される
+            // その完了ハンドラが渡されるのは通信完了後
+            // しかし、return okashiListが実行されるのは通信完了前
+            // だから、結果が[]やnillになる
             switch response.result {
             case .success( _):
                 guard let data = response.data else {return}
@@ -40,19 +47,20 @@ class RequestOkashi{
                     guard let name:String = item.name, let maker:String = item.maker, let link:URL = item.url, let image = item.image else {
                         return
                     }
-                    print("お菓子の名前:\(name)")
-                    print("メーカー:\(maker)")
-                    print("詳細ページリンク:\(link)")
-                    print("お菓子画像のURL:\(image)")
+                    let okashiTuple = (name, maker, link, image)
+                    self.okashiList.append(okashiTuple)
                 }
-                print(items.count)
+                
+                //元の非同期処理の完了ハンドラの中で自前の完了ハンドラを呼び出す
+                completion(self.okashiList)
                 
             case .failure(let error):
                 print(error)
                 
             }
+            
         }
-
+        
     }
 
 }

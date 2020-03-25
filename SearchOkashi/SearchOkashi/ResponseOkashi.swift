@@ -9,9 +9,9 @@
 import Foundation
 
 struct ItemJson : Codable {
-    let name : String
-    let maker : String
-    let url : URL
+    let name : String?
+    let maker : String?
+    let url : URL?
     let image : URL?
 }
 

@@ -9,13 +9,14 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController, UISearchBarDelegate {
+class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource {
 
     @IBOutlet weak var searchText: UISearchBar!
     
     @IBOutlet weak var tableView: UITableView!
     
     var request = RequestOkashi()
+    var okashiList : [(name:String, maker:String, link:URL, image:URL)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +24,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
         
         searchText.delegate = self
         searchText.placeholder = "お菓子の名前を入力してください"
+        tableView.dataSource = self
     }
-    
     
     // 検索ボタンクリック時に呼ばれるdelegateメソッド
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -35,53 +36,23 @@ class ViewController: UIViewController, UISearchBarDelegate {
             return
         }
         print(searchWord)
-        //searchOkashi(keyword: searchWord)
-        request.searchOkashi(keyword: searchWord)
+        
+        request.searchOkashi(keyword: searchWord, completion: { okashiList in
+            self.okashiList = okashiList
+            print(self.okashiList)
+            self.tableView.reloadData()
+        })
     }
     
-    // 引数keywordはUISearchBarに入力する検索したいキーワード
-    /*func searchOkashi(keyword : String){
-        // 全角文字をエンコードする
-        guard let keywordEncode = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
-            return
-        }
-        
-        // リクエストURL生成
-        guard let requestURL = URL(string: "https://sysbird.jp/toriko/api/?apikey=guest&format=json&keyword=\(keywordEncode)&max=10&order=r") else {
-            return
-        }
-        print(requestURL)
-        
-        AF.request(requestURL, method: .get, encoding: JSONEncoding.default).response { response in
-            switch response.result {
-            case .success( _):
-                guard let data = response.data else {return}
-                let decoder = JSONDecoder()
-                
-                guard let okashi = try? decoder.decode(ResultJson.self, from: data) else {
-                    return
-                }
-                guard let items = okashi.item else {
-                    return
-                }
-                for item in items {
-                    guard let name:String = item.name, let maker:String = item.maker, let link:URL = item.url, let image = item.image else {
-                        return
-                    }
-                    print("お菓子の名前:\(name)")
-                    print("メーカー:\(maker)")
-                    print("詳細ページリンク:\(link)")
-                    print("お菓子画像のURL:\(image)")
-                }
-                print(items.count)
-                
-            case .failure(let error):
-                print(error)
-                
-            }
-        }
-
-    }*/
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(self.okashiList.count)
+        return okashiList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "okashiCell", for: indexPath)
+        return cell
+    }
 
 }
 
