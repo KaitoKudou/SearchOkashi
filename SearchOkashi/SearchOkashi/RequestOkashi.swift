@@ -43,6 +43,7 @@ class RequestOkashi{
                 guard let items = okashi.item else {
                     return
                 }
+                self.okashiList.removeAll()
                 for item in items {
                     guard let name:String = item.name, let maker:String = item.maker, let link:URL = item.url, let image = item.image else {
                         return
