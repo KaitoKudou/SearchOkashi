@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, SFSafariViewControllerDelegate {
 
     @IBOutlet weak var searchText: UISearchBar!
     
@@ -24,6 +25,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         searchText.delegate = self
         searchText.placeholder = "お菓子の名前を入力してください"
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     // 検索ボタンクリック時に呼ばれるdelegateメソッド
@@ -62,6 +64,19 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         }
         
         return cell
+    }
+    
+    // cellが選択されたときにや呼ばれるdelegeteメソッド
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true) // deselectRow()はcellの選択状態を解除するメソッド
+        let safariViewController = SFSafariViewController(url: okashiList[indexPath.row].link)
+        safariViewController.delegate = self
+        present(safariViewController, animated: true, completion: nil)
+    }
+    
+    // SafariViewが閉じられた時のdelegateメソッド
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        dismiss(animated: true, completion: nil)
     }
 
 }
