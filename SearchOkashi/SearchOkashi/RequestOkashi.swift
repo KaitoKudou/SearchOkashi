@@ -11,8 +11,7 @@ import Alamofire
 
 class RequestOkashi{
     
-    public var okashiList : [(name:String, maker:String, link:URL, image:URL)] = []
-    var viewController:ViewController?
+    var okashiList : [(name:String, maker:String, link:URL, image:URL)] = []
     
     // 引数keywordはUISearchBarに入力する検索したいキーワード
     func searchOkashi(keyword : String , completion: @escaping ([(name:String, maker:String, link:URL, image:URL)]) -> Void){
